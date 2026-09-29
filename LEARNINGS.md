@@ -8,3 +8,10 @@
 - ミュートは右上「音あり／無音」。`localStorage['tg.275.mute']`。自己ベストキー `takegiri-best` は未変更。
 - 初回タップで unlock。裏に回ったら AudioContext.suspend と BGM pause、復帰で resume。音が作れなくてもゲームは止めない。
 - three.js のフォールバックを `document.write` から script 要素＋待ちに替えた。
+
+## 2026-09-29 公開（BGM 統合完了）
+
+- `index.html` に `audio.js`・`#bgm`・`#mute` を接続。インライン WebAudio BGM なし。
+- コミット `e4f2beb` + OGP `26dc9e8` を push。Pages **built** 後、本番 `index.html` / `audio.js` / `audio/Summit_at_Dawn.m4a` がローカルと SHA 一致を実測。
+- ハーネス: `docs/harness-reports/275-takegiri-2026-09-29T12-12-36-582Z.md` — **描画ループのみ FAIL（14 RAF/秒）**。コンソール0・タップ・通信量は PASS。前日同ゲームは 51 RAF/秒で PASS（重い WebGL の実行負荷差と判断。未検証: 実機 FPS）。
+- Slack `#general`: `not_in_channel`（Bot がチャンネル未参加）。手動投稿用テキストは publish.sh 出力どおり。
